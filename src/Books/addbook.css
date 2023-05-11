@@ -1,0 +1,74 @@
+.addbook{
+    display: flex;
+    height: 100vh;
+}
+  
+.card{
+   flex: 1;
+   justify-content: center;
+   background: none;
+  
+   background-color: #C0C3D2;
+}
+.header{
+ /* text-align: center; */
+ color: #0a0a0a;
+
+ font-weight: 700;
+}
+.cardb{
+    /* background-image: url('https://www.shutterstock.com/image-illustration/bookshelves-library-old-books-3d-260nw-1530516716.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    height:'auto';
+    width:'100%';
+    /* background: transparent; */
+}
+.formcontainer{
+ display: flex;
+ justify-content: center;
+ margin-top: 2rem;
+ filter: drop-shadow(8px 5px 5px #666666);
+ 
+ 
+}
+.addform{
+    border: 1px solid #fff;
+ border-radius: 10px;
+ padding: 2rem;
+ background-color:#E5E5E5;
+ color: rgb(18, 18, 18);
+ width:30rem;
+ max-height: 35rem;
+ overflow-y: scroll;
+}
+.addform::-webkit-scrollbar{
+    /* display: none; */
+    width: 7px;
+    /* height: 4px; */
+    background-color: #fbfbfb;
+}
+.addform::-webkit-scrollbar-thumb{
+    background: #C9BDBD;
+    /* height: 8px; */
+    height: 1px;
+}
+@media (max-width:768px) {
+    .addbook{
+        width: 100%;
+        /* height:; */
+        position: fixed;
+    }
+    .formcontainer{
+        /* background-color: aqua; */
+        max-height: 35rem;
+        margin-top: 1px;
+        
+        padding: 1rem ;
+    
+       }
+       .addform{
+        overflow-x: scroll;
+       }
+}
