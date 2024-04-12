@@ -18,7 +18,7 @@ function Signup() {
     }
     const SignUp=async(e)=>{
         e.preventDefault()
-       const api='http://localhost:8000/signUp'
+       const api='https://my-library-backend-nodejs-mern-project.vercel.app/signUp'
       
        const user= await axios.post(api,{FirstName,LastName,Email,Password,ConfirmPassword})
        await console.log(user.data);
