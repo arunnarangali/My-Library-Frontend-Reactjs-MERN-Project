@@ -16,7 +16,7 @@ function Addorder() {
   const [Date, setDate] = useState('')
   const add=async(e)=>{
     e.preventDefault()
-    const api=`http://localhost:8000/addorder`
+    const api=`${process.env.REACT_APP_API_URL}/addorder`
     await axios.post(api,{FirstName,LastName,OrderId,ProductNumber,Date}).then(async(res)=>{
       console.log(res.data);
       await swal(res.data.msg,"New Order is added","success")

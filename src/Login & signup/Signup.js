@@ -18,7 +18,7 @@ function Signup() {
     }
     const SignUp=async(e)=>{
         e.preventDefault()
-       const api='http://localhost:8000/signUp'
+       const api=`${process.env.REACT_APP_API_URL}/signUp`
       
        const user= await axios.post(api,{FirstName,LastName,Email,Password,ConfirmPassword})
        await console.log(user.data);

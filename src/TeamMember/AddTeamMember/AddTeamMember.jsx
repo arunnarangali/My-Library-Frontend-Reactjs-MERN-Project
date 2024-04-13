@@ -18,7 +18,7 @@ function AddTeamMember() {
 
   const addteam=async(e)=>{
     e.preventDefault()
-    const api=`http://localhost:8000/addTeammember`
+    const api=`${process.env.REACT_APP_API_URL}/addTeammember`
     const addTeamMember=await axios.post(api,{Name,Email,DOB,Gender,Description,Role,PhoneNumber}).then(async(res)=>{
        await swal(res.data.msg,"New Member is added","success")
        window.location.reload()

@@ -14,7 +14,7 @@ function ShowTeamMember() {
   const [show, setshow] = useState('')
   
   useEffect(() => {
-   const api=`http://localhost:8000/Teammember`
+   const api=`${process.env.REACT_APP_API_URL}/Teammember`
    axios.get(api).then(async(res)=>{
      await setTeamMember(res.data)
      console.log(res.data);
@@ -22,7 +22,7 @@ function ShowTeamMember() {
   }, [])
   const deleteTeamMember=(id)=>{
     console.log(id);
-    axios.delete(`http://localhost:8000/deletTeammember/${id}`).then((e)=>{
+    axios.delete(`${process.env.REACT_APP_API_URL}/deletTeammember/${id}`).then((e)=>{
       setTeamMember(e.data.TeamMember)
       swal("Deleted",e.data.deletTeamMember.Name, "success");
     })

@@ -11,7 +11,7 @@ function Vieworder() {
     const {id}=useParams()
     const [Order, setOrder] = useState([])
     useEffect(() => {
-      axios.get(`http://localhost:8000/findorder/${id}`).then(async(res)=>{
+      axios.get(`${process.env.REACT_APP_API_URL}/findorder/${id}`).then(async(res)=>{
         await setOrder(res.data.order)
       })
     }, [])

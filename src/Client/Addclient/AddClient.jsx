@@ -13,7 +13,7 @@ function AddClient() {
   const [PhoneNumber, setPhoneNumber] = useState('')
   const add=async(e)=>{
     e.preventDefault()
-    const api='http://localhost:8000/addClient'
+    const api=`${process.env.REACT_APP_API_URL}/addClient`
     const addClient=await axios.post(api,{Name,Username,Email,SignedStatus,Role,PhoneNumber})
     await console.log(addClient.data.Client);
     if(addClient.data.msg){

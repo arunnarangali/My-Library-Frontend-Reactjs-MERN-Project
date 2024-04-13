@@ -18,7 +18,7 @@ function AddCustomer() {
 
   const add=async(e)=>{
     e.preventDefault()
-    const api='http://localhost:8000/addCustomer'
+    const api=`${process.env.REACT_APP_API_URL}/addCustomer`
     const addcustomer=await axios.post(api,{Name,Email,Addressline1,Addressline2,City,State,PinCode,Country})
     await console.log(addcustomer.data.Customer);
     if(addcustomer.data.msg){

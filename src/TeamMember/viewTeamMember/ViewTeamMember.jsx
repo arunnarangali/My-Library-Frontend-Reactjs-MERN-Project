@@ -11,7 +11,7 @@ function ViewTeamMember() {
     const  {id}=useParams()
     const [TeamMember, setTeamMember] = useState([])
     useEffect(() => {
-      axios.get(`http://localhost:8000/findTeammember/${id}`).then(async(res)=>{
+      axios.get(`${process.env.REACT_APP_API_URL}/findTeammember/${id}`).then(async(res)=>{
          await setTeamMember(res.data.TeamMember)
       })
     }, [])

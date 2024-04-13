@@ -9,7 +9,7 @@ function Viewclient() {
   const [Client, setClient] = useState([])
   const {id}=useParams()
   useEffect(() => {
-    const api=`http://localhost:8000/findclient/${id}`
+    const api=`${process.env.REACT_APP_API_URL}/findclient/${id}`
     axios.get(api).then(async(res)=>{
          await setClient(res.data.client);
       

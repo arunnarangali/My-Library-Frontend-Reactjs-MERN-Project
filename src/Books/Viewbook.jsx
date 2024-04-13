@@ -13,7 +13,7 @@ function Viewbook() {
     const {id}=useParams()
     const [book, setBook] = useState([])
     useEffect(() => {
-      const api=`http://localhost:8000/find/${id}`
+      const api=`${process.env.REACT_APP_API_URL}/find/${id}`
       axios.get(api).then(async(res)=>{
         await setBook(res.data.finduser)
         console.log(res.data.finduser);

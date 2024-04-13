@@ -19,7 +19,7 @@ function Cart() {
     useEffect(() => {
       const userid=localStorage.getItem('userId')
     const data={userid}
-      axios.post(`http://localhost:8000/Cart`,data).then((res)=>{
+      axios.post(`${process.env.REACT_APP_API_URL}/Cart`,data).then((res)=>{
            setCart(res.data.product.Cart);
             console.log(res.data.product.Cart);
       })
@@ -43,7 +43,7 @@ function Cart() {
         const userid=localStorage.getItem('userId')
         const data={bkid,userid}
         console.log(data);
-        axios.put(`http://localhost:8000/removeitem`,data).then((res)=>{
+        axios.put(`${process.env.REACT_APP_API_URL}/removeitem`,data).then((res)=>{
            setCart(Cart.filter(ct=>ct._id !==bkid));
             console.log(res.data);
             

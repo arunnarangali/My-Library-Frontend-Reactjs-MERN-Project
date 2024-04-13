@@ -11,7 +11,7 @@ function AdminLogin() {
     const nav=useNavigate()
     const login=async(e)=>{
         e.preventDefault()
-        await axios.post(`http://localhost:8000/adminLogin`,{Email,Password}).then(async(res)=>{
+        await axios.post(`${process.env.REACT_APP_API_URL}/adminLogin`,{Email,Password}).then(async(res)=>{
             await swal("successfully sign in",res.data.Message,"success")
             nav('/sidebar')
         }).catch((err)=>{

@@ -11,7 +11,7 @@ function Customerview() {
     const [show, setshow] = useState('')
     const [Customer, setCustomer] = useState('')
     useEffect(() => {
-      const api=`http://localhost:8000/findCustomer/${id}`
+      const api=`${process.env.REACT_APP_API_URL}/findCustomer/${id}`
       axios.get(api).then(async(res)=>{
         await setCustomer(res.data.Customer)
       })

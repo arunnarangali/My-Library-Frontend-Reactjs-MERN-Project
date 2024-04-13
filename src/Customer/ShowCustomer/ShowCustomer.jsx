@@ -12,7 +12,7 @@ function ShowCustomer() {
   const [show, setshow] = useState('')
   const [Customer, setCustomer] = useState([])
   useEffect(() => {
-    const api='http://localhost:8000/Customer'
+    const api=`${process.env.REACT_APP_API_URL}/Customer`
     axios.get(api).then(async(res)=>{
       await setCustomer(res.data)
       console.log(res.data);
@@ -20,7 +20,7 @@ function ShowCustomer() {
   }, [])
   const deletecustomer=(id)=>{
     console.log(id);
-     const  api=`http://localhost:8000/deleteCustomer/${id}`
+     const  api=`${process.env.REACT_APP_API_URL}/deleteCustomer/${id}`
     axios.delete(api).then((e)=>{
       setCustomer(e.data.customer);
       swal("Deleted",e.data.deleteCustomer.Name, "success");

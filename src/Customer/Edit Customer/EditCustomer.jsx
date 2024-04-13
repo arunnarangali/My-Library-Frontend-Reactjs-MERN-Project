@@ -12,7 +12,7 @@ function EditCustomer() {
     const [Customer, setCustomer] = useState([])
     const {id}=useParams()
     useEffect(() => {
-    const api=`http://localhost:8000/findCustomer/${id}`
+    const api=`${process.env.REACT_APP_API_URL}/findCustomer/${id}`
      axios.get(api).then((res)=>{
        setCustomer(res.data.Customer)
        console.log(res.data);
@@ -29,7 +29,7 @@ function EditCustomer() {
     const [Country, setCountry] = useState(Customer.Country)
     const update=async(e)=>{
         e.preventDefault()
-        const api=`http://localhost:8000/updateCustomer/${id}`
+        const api=`${process.env.REACT_APP_API_URL}/updateCustomer/${id}`
         const addCustomer=await axios.put(api,{Name,Email,Addressline1,Addressline2,City,State,PinCode,Country});
         await swal("Edited",addCustomer.data.msg,"success");
         nav('/Customers')

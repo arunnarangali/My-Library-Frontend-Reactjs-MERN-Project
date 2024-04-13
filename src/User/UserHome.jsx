@@ -21,7 +21,7 @@ function UserHome() {
   const nav = useNavigate();
   const [Book, setBook] = useState([]);
   useEffect(() => {
-    const api = `http://localhost:8000/Books`;
+    const api = `${process.env.REACT_APP_API_URL}/Books`;
     axios.get(api).then((res) => {
       setBook(res.data);
     });
@@ -37,7 +37,7 @@ function UserHome() {
  
     const data={bkid,userid}
     console.log(data);
-    axios.put(`http://localhost:8000/addtocart`,data).then((res)=>{
+    axios.put(`${process.env.REACT_APP_API_URL}/addtocart`,data).then((res)=>{
       console.log(res.data);
     })
     toast.success('Add to cart🛒', {

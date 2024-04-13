@@ -10,7 +10,7 @@ function EditClient() {
     const {id}=useParams()
     const [Client, setClient] = useState([])
     useEffect(() => {
-      const api=`http://localhost:8000/findclient/${id}`
+      const api=`${process.env.REACT_APP_API_URL}/findclient/${id}`
       axios.get(api).then(async(res)=>{
 
          await setClient(res.data.client)
@@ -26,7 +26,7 @@ function EditClient() {
   const [PhoneNumber, setPhoneNumber] = useState(Client.PhoneNumber)
   const Edit=async(e)=>{
     e.preventDefault()
-    const api=`http://localhost:8000/clientUpdate/${id}`
+    const api=`${process.env.REACT_APP_API_URL}/clientUpdate/${id}`
     const addclient=await axios.put(api,{Name,Username,Email,SignedStatus,Role,PhoneNumber});
     await swal("Edited",addclient.data.msg,"success");
     nav('/Clients')

@@ -33,7 +33,7 @@ function ShowClient() {
   };
 
   const deleteclient = async (_id) => {
-    const api = `http://localhost:8000/Clientdelete/${_id}`;
+    const api = `${process.env.REACT_APP_API_URL}/Clientdelete/${_id}`;
     axios.delete(api).then((res) => {
       setClientdetails(res.data.client);
       swal("Deleted", res.data.deleteClient.Name, "success");

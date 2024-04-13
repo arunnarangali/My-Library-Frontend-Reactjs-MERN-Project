@@ -31,7 +31,7 @@ function Addbooks() {
     }
     const add=async(e)=>{
         e.preventDefault()
-        const api='http://localhost:8000/addBooks'
+        const api=`${process.env.REACT_APP_API_URL}/addBooks`
         const addbook=await axios.post(api,{Name,Author,Publication,Year,Avilability,Image,Price,Quantity})
         await console.log(addbook.data.booksdetails);
          if(addbook.data.msg){

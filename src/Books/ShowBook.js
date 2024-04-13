@@ -38,7 +38,7 @@ function ShowBook() {
   };
 
   const deletebook = async (_id) => {
-    const api = `http://localhost:8000/Books/${_id}`;
+    const api = `${process.env.REACT_APP_API_URL}/Books/${_id}`;
     axios.delete(api).then((e)=> {
       setBooks(e.data.books);
       swal("Deleted", e.data.deleteuser.Name, "success");

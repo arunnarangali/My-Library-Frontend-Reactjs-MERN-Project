@@ -13,7 +13,7 @@ function EditBook() {
   const {id}=useParams();
   const [book, setBook] = useState([])
   useEffect(() => {
-    const api=`http://localhost:8000/find/${id}`
+    const api=`${process.env.REACT_APP_API_URL}/find/${id}`
     axios.get(api).then(async(res)=>{
       await setBook(res.data.finduser)
       console.log(res.data.finduser);
@@ -42,7 +42,7 @@ function EditBook() {
   }
   const update=async(e)=>{
     e.preventDefault()
-          const api=`http://localhost:8000/Booksupdate/${id}`;
+          const api=`${process.env.REACT_APP_API_URL}/Booksupdate/${id}`;
           console.log(id);
           const addbook=await axios.put(api,{Name,Author,Publication,Year,Avilability,Image,Price,Quantity});
         

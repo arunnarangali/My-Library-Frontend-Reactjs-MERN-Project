@@ -13,7 +13,7 @@ function EditOrder() {
     const {id}=useParams()
     const [Order, setOrder] = useState('')
     useEffect(() => {
-        axios.get(`http://localhost:8000/findorder/${id}`).then((res)=>setOrder(res.data.order))
+        axios.get(`${process.env.REACT_APP_API_URL}/findorder/${id}`).then((res)=>setOrder(res.data.order))
       
     }, [id])
     
@@ -24,7 +24,7 @@ function EditOrder() {
   const [Date, setDate] = useState(Order.Date)
     const Edit=async(e)=>{
         e.preventDefault()
-        const api=`http://localhost:8000/updateorder/${id}`
+        const api=`${process.env.REACT_APP_API_URL}/updateorder/${id}`
         const addorder=await axios.put(api,{FirstName,LastName,OrderId,ProductNumber,Date})
         await swal( addorder.data.msg,"Edited","success"); 
         nav('/Order')

@@ -13,7 +13,7 @@ function ShowOrder() {
   const [show, setshow] = useState('')
 
     useEffect(() => {
-      axios.get(`http://localhost:8000/Order`).then(async(res)=>{
+      axios.get(`${process.env.REACT_APP_API_URL}/Order`).then(async(res)=>{
         await setOrder(res.data)
         console.log(res.data);
       }).catch((err)=>console.log(err))
@@ -22,7 +22,7 @@ function ShowOrder() {
    
     const deleteOrder=(id)=>{
         console.log(id);
-        axios.delete(`http://localhost:8000/deleteorder/${id}`).then((e)=>{
+        axios.delete(`${process.env.REACT_APP_API_URL}/deleteorder/${id}`).then((e)=>{
             setOrder(e.data.order)
             swal("Deleted",e.data.deleteorder.FirstName, "success");
         })
