@@ -17,7 +17,7 @@ function ShowBook() {
   const [show, setshow] = useState('')
 
   useEffect(() => {
-    const api = "http://localhost:8000/Books";
+    const api = `${process.env.REACT_APP_API_URL}/Books`;
     axios
       .get(api)
       .then(async (res) => {
